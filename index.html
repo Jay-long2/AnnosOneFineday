@@ -196,6 +196,13 @@ dialog::backdrop{background:rgba(10,16,32,.7)}
       <button aria-pressed="true" data-amt="2500">KES 2,500<small>a month of workshops</small></button>
       <button aria-pressed="false" data-amt="5000">KES 5,000<small>sponsor a teen's books</small></button>
     </div>
+    <div class="custom">
+      <label for="customAmt">Or give any amount you like</label>
+      <div class="field" id="customField">
+        <span aria-hidden="true">KES</span>
+        <input id="customAmt" type="text" inputmode="numeric" autocomplete="off" enterkeyhint="go"
+               placeholder="Any amount" aria-label="Enter your own amount in Kenyan shillings">
+      </div>
     <button class="btn btn-sun" data-donate>Give via M-Pesa</button>
   </div>
 </section>
