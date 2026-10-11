@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Headline font options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Fraunces:opsz,wght@9..144,700&family=Instrument+Serif:ital@0;1&family=Archivo:wdth,wght@112,800&family=Outfit:wght@700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{ --ink:#16233F; --brand:#AE2144; }
+*{box-sizing:border-box}
+body{margin:0;background:#0d1424;color:#fff;font:400 17px/1.6 "Work Sans",system-ui,sans-serif}
+.intro{max-width:860px;margin:0 auto;padding:44px 24px 10px}
+.intro h1{font:800 30px/1.15 "Bricolage Grotesque",sans-serif;margin:0 0 10px}
+.intro p{color:#AFBAD4;margin:0}
+.opt{margin:30px auto;max-width:1100px;padding:0 24px}
+.tag{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.tag b{font:600 15px "Work Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#F0B9C6}
+.tag span{font-size:14px;color:#9AA7C4}
+.hero{position:relative;border-radius:16px;overflow:hidden;background:var(--ink)}
+.hero::before,.hero::after{content:"";position:absolute;inset:0}
+.hero::before{background:url("assets/hero.webp") 62% 35%/cover no-repeat}
+.hero::after{background:linear-gradient(100deg,rgba(22,35,63,.93) 0%,rgba(22,35,63,.84) 36%,rgba(22,35,63,.44) 70%,rgba(22,35,63,.24) 100%)}
+.inner{position:relative;z-index:1;padding:54px 46px;max-width:70%}
+.eyebrow{text-transform:uppercase;letter-spacing:.13em;font:600 13px "Work Sans",sans-serif;color:#F0B9C6;margin:0 0 14px}
+.h{margin:0;color:#fff;font-size:clamp(30px,4.2vw,52px);line-height:1.08;letter-spacing:-.02em}
+.sub{font:400 18px/1.6 "Work Sans",sans-serif;color:#DCE2F0;margin:18px 0 0;max-width:34em}
+
+/* the five treatments */
+.f1 .h{font-family:"Bricolage Grotesque",sans-serif;font-weight:800}
+.f2 .h{font-family:"Fraunces",serif;font-weight:700;font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 1;letter-spacing:-.01em}
+.f3 .h{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:0;font-size:clamp(34px,4.9vw,60px)}
+.f4 .h{font-family:"Archivo",sans-serif;font-weight:800;font-variation-settings:"wdth" 112;letter-spacing:-.025em;text-transform:uppercase;font-size:clamp(26px,3.5vw,44px)}
+.f5 .h{font-family:"Outfit",sans-serif;font-weight:700;letter-spacing:-.02em}
+.f3 .h em{font-style:italic}
+footer{max-width:860px;margin:0 auto;padding:10px 24px 60px;color:#9AA7C4;font-size:15px}
+@media(max-width:820px){ .inner{max-width:100%;padding:36px 24px} }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>Headline font — five options</h1>
+  <p>Same photo, same scrim, same body text. Only the headline typeface changes. Option 1 is what is on the site now.</p>
+</div>
+
+<div class="opt f1">
+  <div class="tag"><b>1 — Bricolage Grotesque</b><span>current. Quirky grotesque, slightly condensed, confident.</span></div>
+  <div class="hero"><div class="inner">
+    <p class="eyebrow">Kibera &middot; Nairobi &middot; Kenya</p>
+    <p class="h">Where creativity opens doors to new possibilities.</p>
+    <p class="sub">Anno's One Fine Day Art Centre is a creative space in Kibera where children and young people explore, dream, create and imagine new possibilities for their lives.</p>
+  </div></div>
+</div>
+
+<div class="opt f2">
+  <div class="tag"><b>2 — Fraunces</b><span>warm, soft-cornered serif with a little wonk. Closest in spirit to the hand-drawn logo.</span></div>
+  <div class="hero"><div class="inner">
+    <p class="eyebrow">Kibera &middot; Nairobi &middot; Kenya</p>
+    <p class="h">Where creativity opens doors to new possibilities.</p>
+    <p class="sub">Anno's One Fine Day Art Centre is a creative space in Kibera where children and young people explore, dream, create and imagine new possibilities for their lives.</p>
+  </div></div>
+</div>
+
+<div class="opt f3">
+  <div class="tag"><b>3 — Instrument Serif</b><span>high-contrast editorial serif. Elegant, reads as established and arts-world.</span></div>
+  <div class="hero"><div class="inner">
+    <p class="eyebrow">Kibera &middot; Nairobi &middot; Kenya</p>
+    <p class="h">Where creativity opens doors to <em>new possibilities.</em></p>
+    <p class="sub">Anno's One Fine Day Art Centre is a creative space in Kibera where children and young people explore, dream, create and imagine new possibilities for their lives.</p>
+  </div></div>
+</div>
+
+<div class="opt f4">
+  <div class="tag"><b>4 — Archivo, wide &amp; uppercase</b><span>poster-like and loud. Most activist, least gentle.</span></div>
+  <div class="hero"><div class="inner">
+    <p class="eyebrow">Kibera &middot; Nairobi &middot; Kenya</p>
+    <p class="h">Where creativity opens doors to new possibilities.</p>
+    <p class="sub">Anno's One Fine Day Art Centre is a creative space in Kibera where children and young people explore, dream, create and imagine new possibilities for their lives.</p>
+  </div></div>
+</div>
+
+<div class="opt f5">
+  <div class="tag"><b>5 — Outfit</b><span>clean geometric sans. Friendly, neutral, modern-NGO.</span></div>
+  <div class="hero"><div class="inner">
+    <p class="eyebrow">Kibera &middot; Nairobi &middot; Kenya</p>
+    <p class="h">Where creativity opens doors to new possibilities.</p>
+    <p class="sub">Anno's One Fine Day Art Centre is a creative space in Kibera where children and young people explore, dream, create and imagine new possibilities for their lives.</p>
+  </div></div>
+</div>
+
+<footer>Tell me a number and I will apply it to every heading on both pages, or just to the hero headline if you would rather keep the rest as is.</footer>
+</body>
+</html>

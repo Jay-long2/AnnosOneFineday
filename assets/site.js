@@ -4,6 +4,12 @@ const CONFIG = {
   paybill: "522522",
   accountNo: "7735032",
 
+  /* Amounts on the page are shown in US dollars. M-Pesa itself only accepts Kenyan
+     shillings, so the donate modal converts the chosen amount with the rate below
+     and rounds it to the nearest 100 KES. Update the rate from time to time -
+     it was 129.71 on 11 October 2026. */
+  kesPerUsd: 129.71,
+
   /* contact */
   email:    "info@annosonefineday.org",
   whatsapp: "254722886172",          // digits only, no "+"
@@ -52,10 +58,12 @@ if (CONFIG.backgroundImage && $(".hero")) $(".hero").style.setProperty("--hero-i
 if (CONFIG.heroImage && $("#stage")) $("#stage").innerHTML = '<img class="photo" alt="" src="' + CONFIG.heroImage + '">';
 
 /* ---------- amount picker (index only) ---------- */
-const fmt = n => "KES " + n.toLocaleString("en-KE");
+const fmtUsd = n => "$" + n.toLocaleString("en-US");
+const toKes  = n => Math.round(n * CONFIG.kesPerUsd / 100) * 100;
+const fmtKes = n => "KES " + n.toLocaleString("en-KE");
 const amtBtns = $$("#amounts button");
 const customAmt = $("#customAmt"), customField = $("#customField");
-let lastPreset = 2500, amount = 2500;
+let lastPreset = 150, amount = 150;
 
 if (amtBtns.length) {
   const pressOnly = v => amtBtns.forEach(x => x.setAttribute("aria-pressed", +x.dataset.amt === v ? "true" : "false"));
@@ -76,7 +84,7 @@ if (amtBtns.length) {
   customAmt.addEventListener("focus", () => { customAmt.value = digitsOf(customAmt.value); });
   customAmt.addEventListener("blur",  () => {
     const d = digitsOf(customAmt.value);
-    customAmt.value = d ? (+d).toLocaleString("en-KE") : "";
+    customAmt.value = d ? (+d).toLocaleString("en-US") : "";
   });
   customAmt.addEventListener("keydown", e => {
     if (e.key === "Enter") { e.preventDefault(); customAmt.blur(); openDonate(); }
@@ -90,7 +98,8 @@ if ($("#dAcc")) $("#dAcc").textContent = CONFIG.accountNo;
 
 function openDonate() {
   if (!dlg) { location.href = "index.html#give"; return; }
-  if ($("#dAmt")) $("#dAmt").textContent = fmt(amount);
+  if ($("#dAmt"))     $("#dAmt").textContent = fmtKes(toKes(amount));
+  if ($("#dAmtNote")) $("#dAmtNote").textContent = "(about " + fmtUsd(amount) + " at today's rate)";
   dlg.showModal();
 }
 $$("[data-donate]").forEach(b => b.addEventListener("click", openDonate));
